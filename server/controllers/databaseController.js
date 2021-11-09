@@ -6,7 +6,7 @@ const dbController = {};
 
 const options = {
   provider: 'google',
-  apiKey: 'API-KEY-HERE',
+  apiKey: 'AIzaSyAG8pD29eYb7EnZNrNFinFbmMtJiqqnzKI',
 }
 
 const geocoder = NodeGeocoder(options);
@@ -91,7 +91,7 @@ dbController.addUser = async (req, res, next) => {
       const values = [username, encrypted, JSON.stringify(coordinates)];
       const response = await db.query(query, values);
       const user = response.rows[0];
-      
+
       res.locals.verified = true;
       res.locals.message = 'User created!'
       res.locals.user = user;
@@ -192,7 +192,7 @@ req.body: { user1_id, user2_id }
 dbController.addFriend = async (req, res, next) => {
   try {
     const { user1_id, user2_id } = req.body;
-    res.locals.user = { user_id: user1_id};
+    res.locals.user = { user_id: user1_id };
     const values = [user1_id, user2_id];
     const query = `
       INSERT INTO friends (user1_id, user2_id) VALUES($1, $2)
@@ -202,7 +202,7 @@ dbController.addFriend = async (req, res, next) => {
     res.locals.insert = insert.rows;
     return next();
   }
-  catch(err) {
+  catch (err) {
     return next(err);
   }
 }
