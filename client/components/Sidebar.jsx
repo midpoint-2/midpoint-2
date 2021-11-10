@@ -19,29 +19,29 @@ const Sidebar = (props) => {
         <div className='flexAlignCenter'>
 
           {/* shows avatar photo and user greeting */}
-          <img src={props.avatar} className='picStyles' />
-          <p className='pStyles'>Welcome back, {props.name}!</p>
+          <img src={props.avatar} className='avatar' />
+          <p className='p1Styles'>Welcome back, {props.name}!</p>
 
         </div>
         <div className='flexAlignCenter'>
 
           {/* shows location icon and user location */}
-          <img src={imgUrl} className='picStyles' />
-          <p className='pStyles'>{JSON.stringify(props.address)}</p>
+          <img src={imgUrl} className='marker' />
+          <p className='p2Styles'>{JSON.stringify(props.address)}</p>
 
         </div>
         <div className='center'>
 
           {/* input field where users can elect to update their current location */}
-          Update your address: <input className='inputStyles'
+          <input className='inputStyles'
             name="address" type="text"
-            placeholder="lat/lng"
+            placeholder="Address"
             value={address}
             onChange={(event) => onChangeHandler(event)}>
           </input>
 
           <button onClick={() => props.updateLocation(address)}>
-            Change
+            Update
           </button>
         </div>
       </div>
@@ -63,6 +63,7 @@ const Sidebar = (props) => {
             Meet in the Middle
           </button>
 
+
           <p></p>
         </div>
         {/* when clicked, triggers action to get that friend's location and use it to find the midpoint */}
@@ -76,6 +77,7 @@ const Sidebar = (props) => {
               Add
             </button> {allUser.username} </div>)
         })}
+
 
       </div>
     </div>

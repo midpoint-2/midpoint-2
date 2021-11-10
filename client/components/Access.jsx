@@ -53,7 +53,7 @@ const Access = ({pageToDisplay, currentUserID, addUser, loggedIn, pageToSignup, 
   if (pageToDisplay === 'login') return (
     <div className='loginStyles'>
       
-      <h1>Login Page</h1>
+      <h1>MidPoint</h1>
       <img src='https://i.imgur.com/YQ3shad.png'/>
       <input 
         name="username"
@@ -69,8 +69,8 @@ const Access = ({pageToDisplay, currentUserID, addUser, loggedIn, pageToSignup, 
         value={password}
         onChange={(event) => onChangeHandler(event)}
         />
-      <button onClick={() => logIn(username,password)}>Login</button> 
-      <button onClick={pageToSignup}>Sign-up</button>
+      <button onClick={() => logIn(username,password)}>Log in</button> 
+      <button onClick={pageToSignup}>Sign up</button>
         
     </div>
   );
@@ -81,14 +81,14 @@ const Access = ({pageToDisplay, currentUserID, addUser, loggedIn, pageToSignup, 
   return (
     <div className='loginStyles'>
 
-      <h1>Sign-up Page</h1>
+      <h1>MidPoint</h1>
       <img src='https://i.imgur.com/YQ3shad.png'/>
         
         <input name="username" id="username" value={username} type="text" placeholder="Username" onChange={(event) => onChangeHandler(event)}></input> 
         <input name="password" id="password" value={password} type="password" placeholder="Password" onChange={(event) => onChangeHandler(event)}></input>
-        <input name="address" id="address" value={address} type="text" placeholder="45 main street" onChange={(event) => onChangeHandler(event)}></input>
+        <input name="address" id="address" value={address} type="text" placeholder="Address" onChange={(event) => onChangeHandler(event)}></input>
 
-        <button onClick={() => {if((username || password || address) !== '') signUpUser(username,password,address)}}>Create an account</button>
+        <button onClick={() => {if((username || password || address) !== '') signUpUser(username,password,address)}}>Submit</button>
         <button onClick={signUpCancel}>Cancel</button>  
     </div>
   );
