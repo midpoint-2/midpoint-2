@@ -25,7 +25,7 @@ router.delete('/deselectFriend', dbController.deselectFriend, dbController.getMe
   return res.status(201).json(res.locals);
 });
 
-router.put('/updateLocation', dbController.updateUser, (req, res) => {
+router.put('/updateLocation', dbController.updateLocation, (req, res) => {
   return res.status(201).json(res.locals.user);
 })
 
