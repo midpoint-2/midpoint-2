@@ -191,6 +191,8 @@ req.body: { user1_id, user2_id }
 */
 dbController.addUser = async (req, res, next) => {
   try {
+    console.log("-------------")
+    console.log(req.body)
     const { user1_id, user2_id } = req.body;
     res.locals.user = { user_id: user1_id };
     const values = [user1_id, user2_id];
@@ -211,6 +213,8 @@ dbController.addUser = async (req, res, next) => {
 // DELETE USER from friend list
 dbController.deselectFriend = async (req, res, next) => {
   try {
+    console.log("-------------")
+    console.log(req.body)
     const { user1_id, user2_id } = req.body;
     res.locals.user = { user_id: user1_id }
     const values = [user1_id, user2_id];

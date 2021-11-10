@@ -26,7 +26,7 @@ router.post('/addUser', dbController.addUser, dbController.getMeetingList, dbCon
   return res.status(201).json(res.locals);
 })
 
-router.delete('/deletefriend', dbController.deselectFriend, dbController.getMeetingList, dbController.getUsersList, (req, res) => {
+router.delete('/deselectFriend', dbController.deselectFriend, dbController.getMeetingList, dbController.getUsersList, (req, res) => {
   return res.status(201).json(res.locals);
 })
 
