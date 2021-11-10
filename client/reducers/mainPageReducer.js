@@ -65,8 +65,8 @@ const mainPageReducer = (state = initialState, action) => {
 
 
     case types.UPDATE_LOCATION:
-      const tempObj = Object.assign({}, state.selfInfo);
-      tempObj.address = action.payload.address;
+      const tempObj = { ...state.selfInfo };
+      tempObj.address = { lat: Number(action.payload.coordinates.lat), lng: Number(action.payload.coordinates.lng) }
       return {
         ...state,
         selfInfo: tempObj,
@@ -80,8 +80,6 @@ const mainPageReducer = (state = initialState, action) => {
 
 
     case types.ADD_USER:
-      console.log("add friend triggered")
-
       return {
         ...state,
         selectedUsersList: action.payload.selectedUserList,
@@ -89,7 +87,6 @@ const mainPageReducer = (state = initialState, action) => {
       }
     //add deselect user reducer
     case types.DESELECT_USER:
-      console.log("deselect user triggered")
       //return updated selected
       return {
         ...state,

@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
 const imgUrl = 'https://i.imgur.com/WTHBUgm.png';
-const Marker = ({ icon }) => <img className="marker"height={'100px'} width={'100px'} src={imgUrl}></img>;
+const Marker = ({ icon }) => <img className="marker" height={'100px'} width={'100px'} src={imgUrl}></img>;
 
 const Map = ({ midpoint }) => {
   return (

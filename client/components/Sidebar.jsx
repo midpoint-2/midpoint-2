@@ -28,7 +28,7 @@ const Sidebar = (props) => {
           {/* shows location icon and user location */}
           <img src={imgUrl} className='marker' />
           <p className='p2Styles'>{JSON.stringify(props.address)}</p>
-
+          <button onClick={() => console.log(props.address)}></button>
         </div>
         <div className='center'>
 
@@ -39,8 +39,7 @@ const Sidebar = (props) => {
             value={address}
             onChange={(event) => onChangeHandler(event)}>
           </input>
-
-          <button onClick={() => props.updateLocation(address)}>
+          <button onClick={() => props.updateLocation(props.currentUserID, address)}>
             Update
           </button>
         </div>
@@ -54,7 +53,7 @@ const Sidebar = (props) => {
         <div className='inputStyles' style={{ borderBottom: '4px solid black' }}>
           {props.selectedUsersList.map((friend) => {
             return (<div id={friend.user_id} key={friend.user_id} value={friend.username}>
-              <button onClick={() => props.deselectFriend( props.currentUserID, friend.user_id)}>{friend.username}</button></div>
+              <button onClick={() => props.deselectFriend(props.currentUserID, friend.user_id)}>{friend.username}</button></div>
             )
           }
           )}
