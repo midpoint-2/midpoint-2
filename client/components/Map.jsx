@@ -25,6 +25,4 @@ const Map = ({ midpoint }) => {
     </div>
   )
 }
-
-
 export default Map;

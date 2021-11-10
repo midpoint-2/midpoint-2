@@ -120,7 +120,7 @@ dbController.updateLocation = async (req, res, next) => {
     const query = `UPDATE users SET coordinates = $2 WHERE user_id = $1 RETURNING *`;
     const values = [user_id, coordinates];
     const response = await db.query(query, values);
-    res.locals.user = response.rows;
+    res.locals.user = response.rows[0];
     return next();
   } catch (err) {
     return next(err);
@@ -194,8 +194,6 @@ req.body: { user1_id, user2_id }
 */
 dbController.addUser = async (req, res, next) => {
   try {
-    console.log("-------------")
-    console.log(req.body)
     const { user1_id, user2_id } = req.body;
     res.locals.user = { user_id: user1_id };
     const values = [user1_id, user2_id];
@@ -216,8 +214,6 @@ dbController.addUser = async (req, res, next) => {
 // DELETE USER from friend list
 dbController.deselectFriend = async (req, res, next) => {
   try {
-    console.log("-------------")
-    console.log(req.body)
     const { user1_id, user2_id } = req.body;
     res.locals.user = { user_id: user1_id }
     const values = [user1_id, user2_id];

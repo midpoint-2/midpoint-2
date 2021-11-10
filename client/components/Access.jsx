@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
   signUpCancel: () => dispatch(actions.signUpCancel()),
   logIn: (user, pass) => dispatch(actions.logIn(user, pass)),
   signUpUser: (user, pass, address) => dispatch(actions.signUpUser(user, pass, address)),
-  updateLocation: (address) => dispatch(actions.updateLocation(address)),
+  updateLocation: (user, address) => dispatch(actions.updateLocation(user, address)),
   getMidpoint: (user, friendUser) => dispatch(actions.getMidpoint(user, friendUser)),
   addUser: (user1_id, user2_id) => dispatch(actions.addUser(user1_id, user2_id)),
   deselectFriend: (user1_id, user2_id) => dispatch(actions.deselectFriend(user1_id, user2_id))

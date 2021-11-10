@@ -42,13 +42,23 @@ export const signUpCancel = () => ({
   type: types.SIGN_UP_CANCEL,
 });
 
-export const updateLocation = (address) => ({
-  type: types.UPDATE_LOCATION,
-  payload: { address },
-})
+export const updateLocation = (user_id, address) => (dispatch) => {
+  const request = {
+    method: 'PUT',
+    url: 'database/updateLocation',
+    data: { user_id, address }
+  }
+
+  axios.request(request).then((response) => {
+    if (response.status = 201) dispatch({
+      type: types.UPDATE_LOCATION,
+      payload: response.data,
+    });
+  }).catch(console.error);
+}
+
 
 export const getMidpoint = (userCoords, friendCoords) => {
-  console.log("*****", userCoords)
   // iterate over friendCoord, get array of lang, lat and 
   const coordArr = [];
   let xSum = userCoords.lat
@@ -97,6 +107,7 @@ export const deselectFriend = (user1_id, user2_id) => (dispatch) => {
 }
 
 
+
 // export const deleteCard = id => (dispatch, getState) => {
 //   if (getState().markets.marketList[id].cards > 0) {
 //     dispatch({ type: types.DELETE_CARD, payload: id });
@@ -126,4 +137,5 @@ export const deselectFriend = (user1_id, user2_id) => (dispatch) => {
 //     });
 //   }).catch(console.error);
 //   // hit reducer to update state with the new query of all transactions...
+
 // };
