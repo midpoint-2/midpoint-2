@@ -7,7 +7,7 @@ const Marker = ({ icon }) => <img className="marker"height={'100px'} width={'100
 const Map = ({ midpoint }) => {
   return (
 
-    <div id="right-side-content" className='mapContainer'>
+    <div className='mapContainer'>
       {console.log('we are in maps', midpoint.lat, midpoint.lng)}
       {console.log('is middle point an object', midpoint)}
 
