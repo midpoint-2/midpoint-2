@@ -48,9 +48,17 @@ export const updateLocation = (address) => ({
 })
 
 export const getMidpoint = (userCoords, friendCoords) => {
-
-  const lat = (userCoords.lat + friendCoords.lat) / 2;
-  const lng = (userCoords.lng + friendCoords.lng) / 2;
+  console.log("*****", userCoords)
+  // iterate over friendCoord, get array of lang, lat and 
+  const coordArr = [];
+  let xSum = userCoords.lat
+  let ySum = userCoords.lng
+  for (let i = 0; i < friendCoords.length; i++) {
+    xSum += friendCoords[i].coordinates.lat
+    ySum += friendCoords[i].coordinates.lng
+  }
+  const lat = xSum / (friendCoords.length + 1)
+  const lng = ySum / (friendCoords.length + 1)
 
   return ({
     type: types.GET_MIDPOINT,

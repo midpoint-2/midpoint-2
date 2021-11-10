@@ -59,11 +59,9 @@ const Sidebar = (props) => {
           }
           )}
           <p></p>
-          <button onClick={() => props.getMidpoint(props.address, friend.coordinates)}>
+          <button onClick={() => props.getMidpoint(props.address, props.selectedUsersList)}>
             Meet in the Middle
           </button>
-
-
           <p></p>
         </div>
         {/* when clicked, triggers action to get that friend's location and use it to find the midpoint */}
