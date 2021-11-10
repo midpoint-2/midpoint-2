@@ -208,17 +208,20 @@ dbController.addFriend = async (req, res, next) => {
 }
 
 // TODOS //
-// DELETE user from friend list
-
-// post to friends table with user1_id: current user, user2_id, selected user
-// dbController.addFriends = async (req, res, next) => {
-//   try {
-
-//   }
-//   catch(err) {
-
-//   }
-// }
-
+// DELETE USER from friend list
+dbController.deleteFriend = async (req, res, next) => {
+  try {
+    const { user1_id, user2_id } = req.body; 
+    res.locals.user = { user_id: user1_id }
+    const values = [user1_id, user2_id];
+    const query = `DELETE FROM friends WHERE user1_id=$1 AND user2_id=$2 RETURNING *`; 
+    const insert = await db.query(query, values);
+    res.locals.insert = insert.rows; 
+    return next(); 
+  } 
+  catch (err) {
+    return next(err);
+  }
+}
 
 module.exports = dbController;
