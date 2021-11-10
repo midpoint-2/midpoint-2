@@ -53,19 +53,18 @@
   flex-direction: row;
   height: 100%;
   font-size: 1em;
+  margin-top: 1vw;
 }
 
 .mapStyles {
   border: 1px solid gray;
-  height: 1000px;
-  width: 1000px;
-  margin: 12px 0px;
+  width: 40vw;
+  height: 40vw;
 }
 
 .mapContainer {
   display: flex;
   flex-direction: column;
-  margin: 0px 0px 0px 20px;
 }
 
 .flexAlignCenter {
@@ -82,7 +81,6 @@
   height: 100%;
   border: 1px solid black;
   border-radius: 6px;
-  margin: 10px 0px 0px 6px;
   padding-left: 0.5em;
 
   input {
@@ -161,4 +159,18 @@
   top: -25px;
   left:-25px;
   transform: translateY(-50%);
+}
+
+.main-container{
+  margin-left: 1vw;
+}
+
+.main-flex{
+  display: flex;
+  margin-top: 1vw;
+}
+
+.places-wrapper{
+  display: flex;
+  margin-left: 1vw;
 }

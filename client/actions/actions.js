@@ -137,4 +137,5 @@ export const deselectFriend = (user1_id, user2_id) => (dispatch) => {
 //     });
 //   }).catch(console.error);
 //   // hit reducer to update state with the new query of all transactions...
+
 // };

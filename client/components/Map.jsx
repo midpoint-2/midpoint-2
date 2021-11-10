@@ -2,12 +2,12 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
 const imgUrl = 'https://i.imgur.com/WTHBUgm.png';
-const Marker = ({ icon }) => <img className="marker" height={'100px'} width={'100px'} src={imgUrl}></img>;
+const Marker = ({ icon }) => <img className="marker"height={'100px'} width={'100px'} src={imgUrl}></img>;
 
 const Map = ({ midpoint }) => {
   return (
 
-    <div id="right-side-content" className='mapContainer'>
+    <div className='mapContainer'>
       {console.log('we are in maps', midpoint.lat, midpoint.lng)}
       {console.log('is middle point an object', midpoint)}
 
@@ -25,6 +25,4 @@ const Map = ({ midpoint }) => {
     </div>
   )
 }
-
-
 export default Map;
