@@ -8,8 +8,8 @@ const initialState = {
   currentUserID: '',
   loggedIn: false,
   selfInfo: { avatar: 'https://www.mindenpictures.com/cache/pcache2/90392052.jpg', name: 'Wunderpus Photogenicus', address: { lat: 40, lng: -74 } },
-  friendsList: [],
-  notFriendsList: [],
+  selectedUsersList: [],
+  allUsersList: [],
   midpoint: { lat: 40.7142700, lng: -74.0059700 },
 };
 
@@ -37,8 +37,8 @@ const mainPageReducer = (state = initialState, action) => {
           ...state,
           currentUserID: action.payload.user.user_id,
           selfInfo: tempObj,
-          friendsList: action.payload.friendList,
-          notFriendsList: action.payload.notFriendList,
+          selectedUsersList: action.payload.selectedUserList,
+          allUsersList: action.payload.allUsersList,
           loggedIn: true,
         };
       }
@@ -79,13 +79,13 @@ const mainPageReducer = (state = initialState, action) => {
       }
 
 
-    case types.ADD_FRIEND:
+    case types.ADD_USER:
       console.log("add friend triggered")
 
       return {
         ...state,
-        friendsList: action.payload.friendList,
-        notFriendsList: action.payload.notFriendList,
+        selectedUsersList: action.payload.selectedUserList,
+        allUsersList: action.payload.allUsersList,
       }
 
     default:

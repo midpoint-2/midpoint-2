@@ -15,7 +15,7 @@ const Sidebar = (props) => {
 
   return (
     <div id="sidebar" className='sidebarStyles'>
-      <div id="user-info" style={{ borderBottom: '1px solid black' }}>
+      <div id="user-info" style={{ borderBottom: '4px solid black' }}>
         <div className='flexAlignCenter'>
 
           {/* shows avatar photo and user greeting */}
@@ -45,29 +45,39 @@ const Sidebar = (props) => {
           </button>
         </div>
       </div>
-      <div id="friend-list" className='center'>
-        <p>Friends:</p>
+      <div id="meeting-user-list" className='center' >
+        <p>To Meet</p>
         {/* dropdown populated with users from friends list */}
-        {console.log('Props friends list', props.friendsList)} {/* array of objects with user_id, username, and coordinates properties*/}
+        {console.log('Props friends list', props.selectedUsersList)} {/* array of objects with user_id, username, and coordinates properties*/}
 
 
-        <div className='inputStyles'>{props.friendsList.map((friend) => {
-          return (<div id={friend.user_id} key={friend.user_id} value={friend.username}>
-            <button onClick={() => props.getMidpoint(props.address, friend.coordinates)}>
-              Find midpoint for {friend.username} 
-            </button></div>)
-        })}</div>
+        <div className='inputStyles' style={{ borderBottom: '4px solid black' }}>
+          {props.selectedUsersList.map((friend) => {
+            return (<div id={friend.user_id} key={friend.user_id} value={friend.username}>
+              {friend.username}</div>
+            )
+          }
+          )}
+          <p></p>
+          <button onClick={() => props.getMidpoint(props.address, friend.coordinates)}>
+            Meet in the Middle
+          </button>
 
+
+          <p></p>
+        </div>
         {/* when clicked, triggers action to get that friend's location and use it to find the midpoint */}
       </div>
       {/* eventual functionality to add a friend to user's friend list by name search */}
+      <div id="all-user-list" className='inputStyles' className='center'>
+        <p>All Users</p>
+        {props.allUsersList.map((allUser, i) => {
+          return (<div id={allUser.user_id} key={allUser.user_id} value={allUser.username}>
+            <button onClick={() => props.addUser(props.currentUserID, allUser.user_id)}>
+              Add
+            </button> {allUser.username} </div>)
+        })}
 
-      <div className='inputStyles' className='center'>{props.notFriendsList.map((notFriend, i) => {
-        return (<div id={notFriend.user_id} key={notFriend.user_id} value={notFriend.username}>
-          <button onClick={() => props.addFriend(props.currentUserID, notFriend.user_id)}>
-            Add {notFriend.username} 
-          </button></div>)
-      })}
 
       </div>
     </div>

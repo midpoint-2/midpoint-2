@@ -125,7 +125,7 @@ dbController.updateUser = async (req, res, next) => {
 }
 
 // get list of all users EXCEPT current user
-dbController.getFriendList = async (req, res, next) => {
+dbController.getMeetingList = async (req, res, next) => {
   // declare a var to store our search query
   // not equal ->  <> OR !=
   const { user_id } = res.locals.user;
@@ -141,7 +141,7 @@ dbController.getFriendList = async (req, res, next) => {
   try {
     // send data via res locals
     const response = await db.query(query, values);
-    res.locals.friendList = response.rows;
+    res.locals.selectedUserList = response.rows;
     return next();
   } catch (err) {
     return next(err);
@@ -149,7 +149,7 @@ dbController.getFriendList = async (req, res, next) => {
 }
 
 // get list of all users not on current user's friends list
-dbController.getNotFriendList = async (req, res, next) => {
+dbController.getUsersList = async (req, res, next) => {
   // declare a var to store our search query
   // not equal ->  <> OR !=
   const { user_id } = res.locals.user;
@@ -163,7 +163,7 @@ dbController.getNotFriendList = async (req, res, next) => {
   try {
     // send data via res locals
     const response = await db.query(query, values);
-    res.locals.notFriendList = response.rows;
+    res.locals.allUsersList = response.rows;
     return next();
   } catch (err) {
     return next(err);
@@ -189,7 +189,7 @@ dbController.getCoords = async (req, res, next) => {
 expect:
 req.body: { user1_id, user2_id }
 */
-dbController.addFriend = async (req, res, next) => {
+dbController.addUser = async (req, res, next) => {
   try {
     const { user1_id, user2_id } = req.body;
     res.locals.user = { user_id: user1_id };
@@ -209,16 +209,16 @@ dbController.addFriend = async (req, res, next) => {
 
 // TODOS //
 // DELETE USER from friend list
-dbController.deleteFriend = async (req, res, next) => {
+dbController.deselectFriend = async (req, res, next) => {
   try {
-    const { user1_id, user2_id } = req.body; 
+    const { user1_id, user2_id } = req.body;
     res.locals.user = { user_id: user1_id }
     const values = [user1_id, user2_id];
-    const query = `DELETE FROM friends WHERE user1_id=$1 AND user2_id=$2 RETURNING *`; 
+    const query = `DELETE FROM friends WHERE user1_id=$1 AND user2_id=$2 RETURNING *`;
     const insert = await db.query(query, values);
-    res.locals.insert = insert.rows; 
-    return next(); 
-  } 
+    res.locals.insert = insert.rows;
+    return next();
+  }
   catch (err) {
     return next(err);
   }
