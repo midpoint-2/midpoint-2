@@ -87,6 +87,15 @@ const mainPageReducer = (state = initialState, action) => {
         selectedUsersList: action.payload.selectedUserList,
         allUsersList: action.payload.allUsersList,
       }
+    //add deselect user reducer
+    case types.DESELECT_USER:
+      console.log("deselect user triggered")
+      //return updated selected
+      return {
+        ...state,
+        selectedUsersList: action.payload.selectedUserList,
+        allUsersList: action.payload.allUsersList,
+      }
 
     default:
       return state;

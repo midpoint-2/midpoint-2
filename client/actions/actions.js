@@ -81,6 +81,20 @@ export const addUser = (user1_id, user2_id) => (dispatch) => {
   }).catch(console.error);
 }
 
+export const deselectFriend = (user1_id, user2_id) => (dispatch) => {
+  const request = {
+    method: 'DELETE',
+    url: 'database/deselectFriend',
+    data: { user1_id, user2_id }
+  }
+
+  axios.request(request).then((response) => {
+    if (response.status = 201) dispatch({
+      type: types.DESELECT_USER,
+      payload: response.data,
+    });
+  }).catch(console.error)
+}
 
 
 // export const deleteCard = id => (dispatch, getState) => {

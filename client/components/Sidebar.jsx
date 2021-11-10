@@ -54,7 +54,7 @@ const Sidebar = (props) => {
         <div className='inputStyles' style={{ borderBottom: '4px solid black' }}>
           {props.selectedUsersList.map((friend) => {
             return (<div id={friend.user_id} key={friend.user_id} value={friend.username}>
-              {friend.username}</div>
+              <button onClick={() => props.deselectFriend( props.currentUserID, friend.user_id)}>{friend.username}</button></div>
             )
           }
           )}
