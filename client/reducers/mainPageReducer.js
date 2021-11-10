@@ -31,7 +31,7 @@ const mainPageReducer = (state = initialState, action) => {
       if (action.payload.verified) {
         const tempObj = { ...state.selfInfo };
         tempObj.name = action.payload.user.username;
-        tempObj.address = {lat: Number(action.payload.user.coordinates.lat), lng: Number(action.payload.user.coordinates.lng)}
+        tempObj.address = { lat: Number(action.payload.user.coordinates.lat), lng: Number(action.payload.user.coordinates.lng) }
 
         return {
           ...state,
@@ -43,40 +43,40 @@ const mainPageReducer = (state = initialState, action) => {
         };
       }
 
-      case types.SIGN_UP_USER:
+    case types.SIGN_UP_USER:
 
-        if(action.payload.verified === true) {
-          const tempObj = {...state.selfInfo};
-          tempObj.name = action.payload.user.username;
-          tempObj.address = `{lat: ${action.payload.user.coordinates.lat}, lng: ${action.payload.user.coordinates.lng}}`;
-         
-          return {
-            ...state,
-            currentUserID: action.payload.user.user_id,
-            selfInfo: tempObj,
-            loggedIn: true,
-            pageToDisplay: 'login',
-          };    
-        }
-         return {
-          ...state,
-          pageToDisplay: 'signup',
-         };
+      if (action.payload.verified === true) {
+        const tempObj = { ...state.selfInfo };
+        tempObj.name = action.payload.user.username;
+        tempObj.address = `{lat: ${action.payload.user.coordinates.lat}, lng: ${action.payload.user.coordinates.lng}}`;
 
-
-      case types.UPDATE_LOCATION:
-        const tempObj = Object.assign({}, state.selfInfo);
-        tempObj.address = action.payload.address;
         return {
           ...state,
+          currentUserID: action.payload.user.user_id,
           selfInfo: tempObj,
-        }
-        
-      case types.GET_MIDPOINT:
-        return {
-          ...state,
-          midpoint: action.payload
-        }
+          loggedIn: false,
+          pageToDisplay: 'login',
+        };
+      }
+      return {
+        ...state,
+        pageToDisplay: 'signup',
+      };
+
+
+    case types.UPDATE_LOCATION:
+      const tempObj = Object.assign({}, state.selfInfo);
+      tempObj.address = action.payload.address;
+      return {
+        ...state,
+        selfInfo: tempObj,
+      }
+
+    case types.GET_MIDPOINT:
+      return {
+        ...state,
+        midpoint: action.payload
+      }
 
 
     case types.ADD_FRIEND:
