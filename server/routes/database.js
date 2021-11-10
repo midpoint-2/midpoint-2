@@ -22,13 +22,18 @@ router.post('/signup', dbController.addUser, (req, res) => {
 //   return res.status(201).json(res.locals.user);
 // })
 
-router.post('/friend', dbController.addFriend, dbController.getFriendList, dbController.getNotFriendList, (req, res) => {
-  return res.status(201).json(res.locals)
+router.post('/addfriend', dbController.addFriend, dbController.getFriendList, dbController.getNotFriendList, (req, res) => {
+  return res.status(201).json(res.locals);
+})
+
+router.delete('/deletefriend', dbController.deleteFriend, dbController.getFriendList, dbController.getNotFriendList, (req, res) => {
+  return res.status(201).json(res.locals);
 })
 
 router.get('/coordinates', dbController.getCoords, (req, res) => {
   return res.status(200).json(res.locals.coords);
 })
+
 // TODOS //
 
 // add/get/post user to friend list

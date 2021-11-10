@@ -61,7 +61,7 @@ export const getMidpoint = (userCoords, friendCoords) => {
 export const addFriend = (user1_id, user2_id) => (dispatch) => {
   const request = {
     method: 'POST',
-    url: 'database/friend',
+    url: 'database/addfriend',
     data: {user1_id, user2_id}
   }
 
