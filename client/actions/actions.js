@@ -106,36 +106,27 @@ export const deselectFriend = (user1_id, user2_id) => (dispatch) => {
   }).catch(console.error)
 }
 
+// RADIUS IS IN METERS
+export const getPlaces = (midpoint, interest, maxPrice, radius) => (dispatch) => {
+  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${midpoint.lat}%2C${midpoint.lng}&radius=${radius}&keyword=${interest}&price=${maxPrice}&key=AIzaSyAG8pD29eYb7EnZNrNFinFbmMtJiqqnzKI`;
+  
+  const request = {
+    method: 'GET',
+    url: url,
+    headers: {
+      'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Credential' : true,
+    },
+  };
 
-
-// export const deleteCard = id => (dispatch, getState) => {
-//   if (getState().markets.marketList[id].cards > 0) {
-//     dispatch({ type: types.DELETE_CARD, payload: id });
-//   }
-// };
-
-
-
-
-// export const buyStock = () => (dispatch, getState) => {
-//   // grab the symbol from state
-//   const sym = getState().stocks.searchBar;
-//   const user_id = getState().stocks.user_id;
-//   // hit API to get current price of stock
-//   const options = {
-//     method: 'POST',
-//     url: '/transaction',
-//     data: {user_id},
-//     params: {region: 'US', symbols: sym}
-//   }
-//   // make a post to the stocks database adding the stock name and current price
-//   // make a post to the transactions database with the current user and the stock ID and time, sold price/sold time null
-//   axios.request(options).then((response) => {
-//     if(response.status = 201) dispatch({
-//       type: types.BUY_STOCK,
-//       payload: response.data,
-//     });
-//   }).catch(console.error);
-//   // hit reducer to update state with the new query of all transactions...
-
-// };
+  axios.request(request).then((response) => {
+    console.log(response.data)
+    dispatch({
+    type: types.GET_PLACES,
+    payload: JSON.stringify(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+  })
+}

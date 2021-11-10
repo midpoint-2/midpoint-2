@@ -3,10 +3,14 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const databaseRouter = require('./routes/database');
+const cors = require('cors')
 
 // parse requests
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+//cors
+app.use(cors())
 
 // need routers
 app.use('/database', databaseRouter);
