@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes as Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes as Switch } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
 import Main from './Main';
+import Places from './Places';
+
 
 const mapStateToProps = ({
   mainPage: { currentUserID, pageToDisplay, loggedIn, selfInfo, selectedUsersList, allUsersList, midpoint }
@@ -25,11 +27,12 @@ const mapDispatchToProps = dispatch => ({
   updateLocation: (user, address) => dispatch(actions.updateLocation(user, address)),
   getMidpoint: (user, friendUser) => dispatch(actions.getMidpoint(user, friendUser)),
   addUser: (user1_id, user2_id) => dispatch(actions.addUser(user1_id, user2_id)),
-  deselectFriend: (user1_id, user2_id) => dispatch(actions.deselectFriend(user1_id, user2_id))
+  deselectFriend: (user1_id, user2_id) => dispatch(actions.deselectFriend(user1_id, user2_id)),
+  getPlaces: (midpoint, interest, maxPrice, radius) => dispatch(actions.getPlaces(midpoint, interest, maxPrice, radius))
 });
 
 
-const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedIn, pageToSignup, signUpCancel, logIn, signUpUser, selfInfo, updateLocation, selectedUsersList, allUsersList, getMidpoint, midpoint }) => {
+const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedIn, pageToSignup, signUpCancel, logIn, signUpUser, selfInfo, updateLocation, selectedUsersList, allUsersList, getMidpoint, midpoint, getPlaces}) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -47,7 +50,7 @@ const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedI
   }
 
   if (loggedIn) {
-    return (<Main {...selfInfo} updateLocation={updateLocation} selectedUsersList={selectedUsersList} allUsersList={allUsersList} getMidpoint={getMidpoint} currentUserID={currentUserID} addUser={addUser} deselectFriend={deselectFriend} midpoint={midpoint} />)
+    return (<Main {...selfInfo} updateLocation={updateLocation} selectedUsersList={selectedUsersList} allUsersList={allUsersList} getMidpoint={getMidpoint} currentUserID={currentUserID} addUser={addUser} deselectFriend={deselectFriend} midpoint={midpoint} getPlaces={getPlaces} />)
   }
 
   // Log In Page

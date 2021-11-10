@@ -11,6 +11,7 @@ const initialState = {
   selectedUsersList: [],
   allUsersList: [],
   midpoint: { lat: 40.7142700, lng: -74.0059700 },
+  places: [],
 };
 
 const mainPageReducer = (state = initialState, action) => {
@@ -93,6 +94,12 @@ const mainPageReducer = (state = initialState, action) => {
         selectedUsersList: action.payload.selectedUserList,
         allUsersList: action.payload.allUsersList,
       }
+      
+    // case types.GET_PLACES:
+    //   return {
+    //     ...state,
+    //     places: action.payload.places
+    //   }
 
     default:
       return state;
