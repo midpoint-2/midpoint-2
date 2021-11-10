@@ -18,7 +18,7 @@ const Map = ({ midpoint }) => {
           defaultCenter={midpoint}
           defaultZoom={14}>
           {/* do markers go in here? */}
-          <Marker className="marker" lat={midpoint.lat} lng={midpoint.lng} text='midpoint' icon={imgUrl} />
+          <Marker className="marker" lat={midpoint.lat} lng={midpoint.lng} text='midpoint'/>
         </GoogleMapReact>
       </div>
     </div>
