@@ -79,7 +79,7 @@ Returns: [{ user_id: int,
     lat: num,
     lng: num }]
 */
-dbController.addUser = async (req, res, next) => {
+dbController.signUpUser = async (req, res, next) => {
   try {
     // declare a new user object with name, password, coords
     const { username, password, address } = req.body;
@@ -112,13 +112,16 @@ dbController.addUser = async (req, res, next) => {
 
 // TODO! FINISH THIS METHOD
 // PUT / update a user's data
-dbController.updateUser = async (req, res, next) => {
-  const { userID, newCoordinates } = req.body;
-  const query = `UPDATE users SET user.coordinates = $2 WHERE user.user_id = $1`
-  const values = [newCoordinates];
+dbController.updateLocation = async (req, res, next) => {
   try {
+    const { user_id, address } = req.body;
+    const geoData = await geocoder.geocode(address);
+    const coordinates = { lat: geoData[0].latitude, lng: geoData[0].longitude };
+    const query = `UPDATE users SET coordinates = $2 WHERE user_id = $1 RETURNING *`;
+    const values = [user_id, coordinates];
     const response = await db.query(query, values);
-    res.locals.user = response;
+    res.locals.user = response.rows;
+    return next();
   } catch (err) {
     return next(err);
   }
