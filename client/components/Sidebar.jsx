@@ -54,16 +54,14 @@ const Sidebar = (props) => {
         <div className='inputStyles' style={{ borderBottom: '4px solid black' }}>
           {props.selectedUsersList.map((friend) => {
             return (<div id={friend.user_id} key={friend.user_id} value={friend.username}>
-              {friend.username}</div>
+              <button onClick={() => props.deselectFriend( props.currentUserID, friend.user_id)}>{friend.username}</button></div>
             )
           }
           )}
           <p></p>
-          <button onClick={() => props.getMidpoint(props.address, friend.coordinates)}>
+          <button onClick={() => props.getMidpoint(props.address, props.selectedUsersList)}>
             Meet in the Middle
           </button>
-
-
           <p></p>
         </div>
         {/* when clicked, triggers action to get that friend's location and use it to find the midpoint */}

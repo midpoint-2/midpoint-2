@@ -16,6 +16,7 @@ const Map = ({ midpoint }) => {
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyAG8pD29eYb7EnZNrNFinFbmMtJiqqnzKI' }}
           defaultCenter={midpoint}
+          center={midpoint}
           defaultZoom={12}>
           {/* do markers go in here? */}
           <Marker lat={midpoint.lat} lng={midpoint.lng} text='midpoint' />

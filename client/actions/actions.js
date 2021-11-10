@@ -48,9 +48,17 @@ export const updateLocation = (address) => ({
 })
 
 export const getMidpoint = (userCoords, friendCoords) => {
-
-  const lat = (userCoords.lat + friendCoords.lat) / 2;
-  const lng = (userCoords.lng + friendCoords.lng) / 2;
+  console.log("*****", userCoords)
+  // iterate over friendCoord, get array of lang, lat and 
+  const coordArr = [];
+  let xSum = userCoords.lat
+  let ySum = userCoords.lng
+  for (let i = 0; i < friendCoords.length; i++) {
+    xSum += friendCoords[i].coordinates.lat
+    ySum += friendCoords[i].coordinates.lng
+  }
+  const lat = xSum / (friendCoords.length + 1)
+  const lng = ySum / (friendCoords.length + 1)
 
   return ({
     type: types.GET_MIDPOINT,
@@ -73,6 +81,20 @@ export const addUser = (user1_id, user2_id) => (dispatch) => {
   }).catch(console.error);
 }
 
+export const deselectFriend = (user1_id, user2_id) => (dispatch) => {
+  const request = {
+    method: 'DELETE',
+    url: 'database/deselectFriend',
+    data: { user1_id, user2_id }
+  }
+
+  axios.request(request).then((response) => {
+    if (response.status = 201) dispatch({
+      type: types.DESELECT_USER,
+      payload: response.data,
+    });
+  }).catch(console.error)
+}
 
 
 // export const deleteCard = id => (dispatch, getState) => {
