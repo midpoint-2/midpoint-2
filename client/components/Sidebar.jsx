@@ -48,11 +48,11 @@ const Sidebar = (props) => {
       <div id="meeting-user-list" className='center' >
         <p>To Meet</p>
         {/* dropdown populated with users from friends list */}
-        {console.log('Props friends list', props.friendsList)} {/* array of objects with user_id, username, and coordinates properties*/}
+        {console.log('Props friends list', props.selectedUsersList)} {/* array of objects with user_id, username, and coordinates properties*/}
 
 
         <div className='inputStyles' style={{ borderBottom: '4px solid black' }}>
-          {props.friendsList.map((friend) => {
+          {props.selectedUsersList.map((friend) => {
             return (<div id={friend.user_id} key={friend.user_id} value={friend.username}>
               {friend.username}</div>
             )
@@ -70,11 +70,11 @@ const Sidebar = (props) => {
       {/* eventual functionality to add a friend to user's friend list by name search */}
       <div id="all-user-list" className='inputStyles' className='center'>
         <p>All Users</p>
-        {props.notFriendsList.map((notFriend, i) => {
-          return (<div id={notFriend.user_id} key={notFriend.user_id} value={notFriend.username}>
-            <button onClick={() => props.addFriend(props.currentUserID, notFriend.user_id)}>
+        {props.allUsersList.map((allUser, i) => {
+          return (<div id={allUser.user_id} key={allUser.user_id} value={allUser.username}>
+            <button onClick={() => props.addUser(props.currentUserID, allUser.user_id)}>
               Add
-            </button> {notFriend.username} </div>)
+            </button> {allUser.username} </div>)
         })}
 
       </div>

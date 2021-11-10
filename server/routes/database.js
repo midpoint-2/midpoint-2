@@ -3,7 +3,7 @@ const dbController = require('../controllers/databaseController');
 const router = express.Router();
 
 // get/verify current  user
-router.get('/login', dbController.verifyUser, dbController.getFriendList, dbController.getNotFriendList, (req, res) => {
+router.get('/login', dbController.verifyUser, dbController.getMeetingList, dbController.getUsersList, (req, res) => {
   // status
   // verified
   // message
@@ -22,11 +22,11 @@ router.post('/signup', dbController.addUser, (req, res) => {
 //   return res.status(201).json(res.locals.user);
 // })
 
-router.post('/addfriend', dbController.addFriend, dbController.getFriendList, dbController.getNotFriendList, (req, res) => {
+router.post('/addUser', dbController.addUser, dbController.getMeetingList, dbController.getUsersList, (req, res) => {
   return res.status(201).json(res.locals);
 })
 
-router.delete('/deletefriend', dbController.deleteFriend, dbController.getFriendList, dbController.getNotFriendList, (req, res) => {
+router.delete('/deletefriend', dbController.deselectFriend, dbController.getMeetingList, dbController.getUsersList, (req, res) => {
   return res.status(201).json(res.locals);
 })
 
