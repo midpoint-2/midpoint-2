@@ -13,35 +13,25 @@ router.get('/login', dbController.verifyUser, dbController.getMeetingList, dbCon
 });
 
 // post/create a new user (encrypt password)
-router.post('/signup', dbController.addUser, (req, res) => {
+router.post('/signup', dbController.signUpUser, (req, res) => {
   return res.status(201).json(res.locals);
 });
 
-// put/update current user's data (location, interests)
-// router.put('/', dbController.updateUser, (req, res) => {
-//   return res.status(201).json(res.locals.user);
-// })
-
 router.post('/addUser', dbController.addUser, dbController.getMeetingList, dbController.getUsersList, (req, res) => {
   return res.status(201).json(res.locals);
-})
+});
 
 router.delete('/deselectFriend', dbController.deselectFriend, dbController.getMeetingList, dbController.getUsersList, (req, res) => {
   return res.status(201).json(res.locals);
+});
+
+router.put('/updateLocation', dbController.updateUser, (req, res) => {
+  return res.status(201).json(res.locals.user);
 })
 
 router.get('/coordinates', dbController.getCoords, (req, res) => {
   return res.status(200).json(res.locals.coords);
-})
+});
 
-// TODOS //
-
-// add/get/post user to friend list
-
-// delete/remove user from friend list
-
-// ???? post to friends table with user1_id: current user, user2_id, selected user
-
-// TODO! add friends, delete friends
 
 module.exports = router;
