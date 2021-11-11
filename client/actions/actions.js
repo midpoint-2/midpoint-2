@@ -106,15 +106,15 @@ export const deselectFriend = (user1_id, user2_id) => (dispatch) => {
 
 // RADIUS IS IN METERS
 export const getPlaces = (midpoint, interest, maxPrice, radius) => (dispatch) => {
-  
+
   const request = {
     method: 'GET',
-    url: '/api',
+    url: '/api/getPlaces',
     params: { midpoint, interest, maxPrice, radius }
   };
 
   axios.request(request).then((response) => {
-    console.log(response.data)
+    console.log("****", response.data)
     if (response.status === 200) dispatch({
       type: types.GET_PLACES,
       payload: JSON.stringify(response.data)
