@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 #app {
   display: flex;
   background: white;
   height: 100%;
   align-items: top;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .loginStyles {
@@ -22,10 +22,9 @@
   img {
     height: 200px;
     margin-bottom: 5em;
-  };
+  }
 
   button {
-    
     color: black;
     font-size: 1em;
     height: 2rem;
@@ -34,13 +33,13 @@
     box-shadow: 1px 2px 5px 1px lightgray;
     margin-bottom: 1em;
     min-width: 100px;
-  
+
     &:hover {
       background-color: #00549f;
       color: white;
     }
   }
-  
+
   input {
     font-size: 1em;
     height: 2rem;
@@ -68,22 +67,22 @@
   width: 38vw;
   height: 38vw;
 }
-.pin{
+.pin {
   z-index: 1;
   position: absolute;
   width: 50px;
   height: 50px;
   top: -25px;
-  left:-25px;
+  left: -25px;
   transform: translateY(-50%);
 }
 
-.marker{
+.marker {
   position: absolute;
   width: 50px;
   height: 50px;
   top: -25px;
-  left:-25px;
+  left: -25px;
   transform: translateY(-50%);
 }
 
@@ -116,11 +115,11 @@
     height: 2rem;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 0.5px  black;
+    box-shadow: 0.5px black;
     margin-left: 0.5em;
     margin-bottom: 1em;
     min-width: 100px;
-  
+
     &:hover {
       background-color: #00549f;
       color: white;
@@ -181,16 +180,16 @@
   padding-left: 0.5em;
 }
 
-.main-container{
+.main-container {
   margin-left: 1vw;
 }
 
-.main-flex{
+.main-flex {
   display: flex;
   margin-top: 1vw;
 }
 
-.places-wrapper{
+.places-wrapper {
   display: flex;
   flex-direction: column;
   margin-left: 0.5vw;
@@ -213,7 +212,7 @@
     height: 2rem;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 0.5px  black;
+    box-shadow: 0.5px black;
     margin-left: 0.5em;
     margin-bottom: 0.5em;
     min-width: 100px;
@@ -231,7 +230,8 @@
     margin: 0.5em;
     height: 2em;
   }
-  .selected {
-    border: 2px solid rgb(156,192,250)
-  }
+
+.button-container .active {
+  border: 2px solid rgb(156, 192, 250);
 }
+

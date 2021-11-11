@@ -1,26 +1,43 @@
 import React, { useState } from 'react';
+import { $CombinedState } from 'redux';
 
 const Interests = (props) => {
 
     const [interest, setInterest] = useState("");
+    const [selectedInterest, setSelectedInterest] = useState("");
     const [maxPrice, setPrice] = useState("");
+    const [selectedPrice, setSelectedPrice] = useState("");
     const [radius, setRadius] = useState("");
+
+    const categories = ['coffee', 'bar', 'restaurant', 'park'];
+    const budget = ['1', '2', '3', '4'];
+
+    const categoryButtons = categories.map(category => {
+        return <button id={category} className={category + (selectedInterest === category ? ' active' : '')} value={category} onClick={(e) => handleInterest(e.target.value)}>{category}</button>
+    });
+
+    const priceButtons = budget.map(price => {
+        return <button id={price} className={"price-range" + (selectedPrice === price ? ' active' : '')} value={price} onClick={(e) => handlePrice(e.target.value)}>{'$'.repeat(Number(price))}</button>;
+    });
+
+    const handleInterest = (category) => {
+        setInterest(category);
+        setSelectedInterest(category);
+    }
+
+    const handlePrice = (price) => {
+        setPrice(price);
+        setSelectedPrice(price);
+    }
 
     return (
         <React.Fragment>
             <div className="button-container">
                 <div>
-                {['Coffee', 'Bar', 'Breakfast', 'Restaurant', 'Park'].map(key =>
-                        <button className={key === interest ? 'selected' : ''} type="button" key={key} onClick={() => setInterest(key)}>{key}</button>
-                    )}
+                    {categoryButtons}
                 </div>
                 <div>
-
-                    <button className="price-range" value="0" onClick={() => setPrice('0')}>$</button>
-                    <button className="price-range" value="1" onClick={() => setPrice('1')}>$$</button>
-                    <button className="price-range" value="2" onClick={() => setPrice('2')}>$$$</button>
-                    <button className="price-range" value="3" onClick={() => setPrice('3')}>$$$$</button>
-                    <button className="price-range" value="4" onClick={() => setPrice('4')}>$$$$$</button>
+                    {priceButtons}
                 </div>
                 <div>
                     <input className="radius" type="text" placeholder="Enter radius in meters" value={radius} onChange={(e) => setRadius(e.target.value)}></input>
