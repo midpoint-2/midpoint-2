@@ -28,7 +28,7 @@ const Sidebar = (props) => {
           {/* shows location icon and user location */}
           <img src={imgUrl} className='marker' />
           <p className='p2'>Current location: </p>
-          <p className='p2'>{props.address.lat}, {props.address.lng}</p>
+          <p className='p2'>{(props.address.lat)}, {(props.address.lng)}</p>
           {/* <button onClick={() => console.log(props.address)}></button> */}
         </div>
         <div className='update-location'>
@@ -40,7 +40,7 @@ const Sidebar = (props) => {
             value={address}
             onChange={(event) => onChangeHandler(event)}>
           </input>
-          <button  onClick={() => props.updateLocation(props.currentUserID, address)}>
+          <button className="update-button"  onClick={() => props.updateLocation(props.currentUserID, address)}>
             Update
           </button>
         </div>
@@ -60,8 +60,8 @@ const Sidebar = (props) => {
           )}
           
         </div>
-          <button onClick={() => props.getMidpoint(props.address, props.selectedUsersList)}>
-            FIND MIDPOINT
+          <button className="find-mid-button" onClick={() => props.getMidpoint(props.address, props.selectedUsersList)}>
+            Find Midpoint
           </button>
           <p></p>
         {/* when clicked, triggers action to get that friend's location and use it to find the midpoint */}
