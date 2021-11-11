@@ -95,11 +95,12 @@ const mainPageReducer = (state = initialState, action) => {
         allUsersList: action.payload.allUsersList,
       }
       
-    // case types.GET_PLACES:
-    //   return {
-    //     ...state,
-    //     places: action.payload.places
-    //   }
+    case types.GET_PLACES:
+      console.log(action.payload)
+      return {
+        ...state,
+        places: action.payload
+      }
 
     default:
       return state;

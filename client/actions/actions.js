@@ -114,10 +114,10 @@ export const getPlaces = (midpoint, interest, maxPrice, radius) => (dispatch) =>
   };
 
   axios.request(request).then((response) => {
-    console.log("****", response.data)
+    console.log("****", response.data.results)
     if (response.status === 200) dispatch({
       type: types.GET_PLACES,
-      payload: JSON.stringify(response.data)
+      payload: response.data.results
     })
   }).catch(console.error)
 }
