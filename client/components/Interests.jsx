@@ -10,11 +10,9 @@ const Interests = (props) => {
         <React.Fragment>
             <div className="button-container">
                 <div>
-                    <button className="coffee" value="coffee" onClick={() => setInterest('coffee')}>Coffee</button>
-                    <button className="bar" value="bar" onClick={() => setInterest('bar')}>Bar</button>
-                    <button className="restaurant" value="restaurant" onClick={() => setInterest('restaurant')}>Restaurant</button>
-                    <button className="gym" value="gym" onClick={() => setInterest('gym')}>Gym</button>
-                    <button className="park" value="park" onClick={() => setInterest('park')}>Park</button>
+                {['Coffee', 'Bar', 'Breakfast', 'Restaurant', 'Park'].map(key =>
+                        <button className={key === interest ? 'selected' : ''} type="button" key={key} onClick={() => setInterest(key)}>{key}</button>
+                    )}
                 </div>
                 <div>
 
