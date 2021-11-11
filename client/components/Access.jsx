@@ -58,7 +58,7 @@ const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedI
     <div className='loginStyles'>
 
       <h1>MidPoint</h1>
-      <img src='https://i.imgur.com/YQ3shad.png' />
+      <img src='https://i40mc.de/wp-content/uploads/sites/22/2021/02/Icon-Roadmap.png'/>
       <input
         name="username"
         type="text"
@@ -86,7 +86,7 @@ const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedI
     <div className='loginStyles'>
 
       <h1>MidPoint</h1>
-      <img src='https://i.imgur.com/YQ3shad.png' />
+      <img src='https://i40mc.de/wp-content/uploads/sites/22/2021/02/Icon-Roadmap.png'/>
 
       <input name="username" id="username" value={username} type="text" placeholder="Username" onChange={(event) => onChangeHandler(event)}></input>
       <input name="password" id="password" value={password} type="password" placeholder="Password" onChange={(event) => onChangeHandler(event)}></input>

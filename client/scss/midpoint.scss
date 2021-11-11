@@ -12,41 +12,42 @@
   flex-direction: column;
   align-items: center;
 
+  h1 {
+    font-size: 5rem;
+    font-weight: normal;
+    color: gray;
+  }
+
   img {
-    margin-bottom: 1em;
+    height: 200px;
+    margin-bottom: 5em;
   };
 
   button {
-    background-color: lightgray;
+    
     color: black;
-    font-size: 2em;
-    height: 3rem;
-    border-radius: 15px;
+    font-size: 1em;
+    height: 2rem;
+    border-radius: 10px;
     border-style: none;
     box-shadow: 1px 2px 5px 1px lightgray;
-    margin-bottom: 0.5em;
-    min-width: 150px;
+    margin-bottom: 1em;
+    min-width: 100px;
   
     &:hover {
-      background-color: darkgray;
-      color: black;
+      background-color: #00549f;
+      color: white;
     }
   }
   
   input {
-    font-size: 2em;
-    height: 3rem;
-    margin-bottom: 0.5em;
-    border-radius: 15px;
+    font-size: 1em;
+    height: 2rem;
+    margin-bottom: 1em;
+    border-radius: 10px;
     padding-left: 15px;
   }
-
-  h1 {
-    font-size: 5rem;
-    color: gray;
-  }
 }
-
 
 .mainStyles {
   display: flex;
@@ -56,58 +57,63 @@
   margin-top: 1vw;
 }
 
-.mapStyles {
-  border: 1px solid gray;
-  width: 40vw;
-  height: 40vw;
-}
-
 .mapContainer {
   display: flex;
   flex-direction: column;
 }
 
-.flexAlignCenter {
-  display: flex;
-  align-items: center;
+.mapStyles {
+  border: 1px solid gray;
+  width: 60vw;
+  height: 60vw;
 }
 
-.sidebarStyles {
+.marker{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left:-25px;
+  transform: translateY(-50%);
+}
+
+.sidebar {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  background-color: lightgray;
-  width: 25%;
+  align-content: left;
+  background-color: #a7cdf2;
+  width: 20%;
   height: 100%;
   border: 1px solid black;
   border-radius: 6px;
-  padding-left: 0.5em;
+  margin-left: 0.5em;
+  font-size: 0.9em;
 
   input {
     font-size: 1em;
     height: 2rem;
-    margin-bottom: 0.5em;
-    border-radius: 15px;
+    width: 200px;
+    margin-bottom: 1em;
+    border-radius: 10px;
     padding-left: 15px;
     background-color: white;
     color: black;
   }
 
   button {
-    background-color: darkgray;
     color: black;
-    font-size: 1em;
+    font-size: 0.9em;
     height: 2rem;
-    border: 1px solid;
-    border-radius: 15px;
-    border-style: none;
-    box-shadow: 1px 2px 5px 1px lightgray;
-    margin-bottom: 0.5em;
-    min-width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0.5px  black;
+    margin-left: 0.5em;
+    margin-bottom: 1em;
+    min-width: 100px;
   
     &:hover {
-      background-color: gray;
-      color: black;
+      background-color: #00549f;
+      color: white;
       border: 1px solid;
       cursor: pointer;
     }
@@ -119,17 +125,12 @@
   height: 350px;
 }
 
-.center {
+.avatar {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
   align-items: center;
-}
-
-.avatar {
-  height: 50px;
-  width: 50px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   margin: 10px 10px
 }
@@ -143,22 +144,15 @@
   margin: 0px 6px;
 }
 
-.p1Styles {
+.p1 {
   margin-top: 24px;
-  font-size: 1.5em;
-}
-
-.p2Styles {
   font-size: 1em;
+  padding-left: 0.5em;
 }
 
-.marker{
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: -25px;
-  left:-25px;
-  transform: translateY(-50%);
+.p2 {
+  font-size: 1em;
+  padding-left: 0.5em;
 }
 
 .main-container{
@@ -173,4 +167,31 @@
 .places-wrapper{
   display: flex;
   margin-left: 1vw;
+}
+
+.button-container {
+  button {
+    color: black;
+    font-size: 0.8em;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0.5px  black;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+    min-width: 100px;
+
+    &:hover {
+      background-color: #00549f;
+      color: white;
+      border: 1px solid;
+      cursor: pointer;
+    }
+  }
+
+  .radius {
+    border-radius: 10px;
+    margin: 0.5em;
+    height: 2em;
+  }
 }

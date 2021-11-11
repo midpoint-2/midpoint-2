@@ -37,7 +37,6 @@ export const signUpUser = (username, password, address) => (dispatch) => {
   }).catch(console.error);
 };
 
-
 export const signUpCancel = () => ({
   type: types.SIGN_UP_CANCEL,
 });
@@ -56,7 +55,6 @@ export const updateLocation = (user_id, address) => (dispatch) => {
     });
   }).catch(console.error);
 }
-
 
 export const getMidpoint = (userCoords, friendCoords) => {
   // iterate over friendCoord, get array of lang, lat and 
@@ -108,25 +106,18 @@ export const deselectFriend = (user1_id, user2_id) => (dispatch) => {
 
 // RADIUS IS IN METERS
 export const getPlaces = (midpoint, interest, maxPrice, radius) => (dispatch) => {
-  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${midpoint.lat}%2C${midpoint.lng}&radius=${radius}&keyword=${interest}&price=${maxPrice}&key=AIzaSyAG8pD29eYb7EnZNrNFinFbmMtJiqqnzKI`;
   
   const request = {
     method: 'GET',
-    url: url,
-    headers: {
-      'Access-Control-Allow-Origin' : '*',
-      'Access-Control-Allow-Credential' : true,
-    },
+    url: '/api',
+    params: { midpoint, interest, maxPrice, radius }
   };
 
   axios.request(request).then((response) => {
     console.log(response.data)
-    dispatch({
-    type: types.GET_PLACES,
-    payload: JSON.stringify(response.data)
+    if (response.status === 200) dispatch({
+      type: types.GET_PLACES,
+      payload: JSON.stringify(response.data)
     })
-    .catch(function (error) {
-      console.log(error)
-    })
-  })
+  }).catch(console.error)
 }
