@@ -27,6 +27,7 @@
     "eslint": "^8.1.0",
     "express": "^4.12.3",
     "google-map-react": "^2.1.10",
+    "jest": "^27.3.1",
     "node-geocoder": "^3.27.0",
     "pg": "^8.7.1",
     "prop-types": "^15.6.1",
@@ -59,6 +60,7 @@
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
+    "supertest": "^6.1.6",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.4.0"

@@ -7,7 +7,7 @@ const initialState = {
   pageToDisplay: 'login',
   currentUserID: '',
   loggedIn: false,
-  selfInfo: { avatar: 'https://ca.slack-edge.com/T02B59DL83Y-U02FVUX4U21-ffa4c78dded7-512', name: 'Wunderpus Photogenicus', address: { lat: 40, lng: -74 } },
+  selfInfo: { avatar: 'https://ca.slack-edge.com/T02B59DL83Y-U02FUQ7A79R-c812373563d4-512', name: 'han bin jo', address: { lat: 40, lng: -74 } },
   selectedUsersList: [],
   allUsersList: [],
   midpoint: { lat: 40.7142700, lng: -74.0059700 },
