@@ -8,7 +8,7 @@ import Places from './Places';
 
 
 const mapStateToProps = ({
-  mainPage: { currentUserID, pageToDisplay, loggedIn, selfInfo, selectedUsersList, allUsersList, midpoint }
+  mainPage: { currentUserID, pageToDisplay, loggedIn, selfInfo, selectedUsersList, allUsersList, midpoint, places }
 }) => ({
   pageToDisplay,
   loggedIn,
@@ -17,6 +17,7 @@ const mapStateToProps = ({
   allUsersList,
   midpoint,
   currentUserID,
+  places,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -32,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedIn, pageToSignup, signUpCancel, logIn, signUpUser, selfInfo, updateLocation, selectedUsersList, allUsersList, getMidpoint, midpoint, getPlaces}) => {
+const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedIn, pageToSignup, signUpCancel, logIn, signUpUser, selfInfo, updateLocation, selectedUsersList, allUsersList, getMidpoint, midpoint, getPlaces, places}) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -50,7 +51,7 @@ const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedI
   }
 
   if (loggedIn) {
-    return (<Main {...selfInfo} updateLocation={updateLocation} selectedUsersList={selectedUsersList} allUsersList={allUsersList} getMidpoint={getMidpoint} currentUserID={currentUserID} addUser={addUser} deselectFriend={deselectFriend} midpoint={midpoint} getPlaces={getPlaces} />)
+    return (<Main {...selfInfo} updateLocation={updateLocation} selectedUsersList={selectedUsersList} allUsersList={allUsersList} getMidpoint={getMidpoint} currentUserID={currentUserID} addUser={addUser} deselectFriend={deselectFriend} midpoint={midpoint} getPlaces={getPlaces} places={places} />)
   }
 
   // Log In Page

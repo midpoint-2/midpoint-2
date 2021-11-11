@@ -5,18 +5,15 @@ const apiController = {};
 apiController.getPlaces = async (req, res, next) => {
   const { midpoint, interest, maxPrice, radius } = req.query;
   // console.log('this is the req query:', req.query);
-  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${midpoint.lat}%2C${midpoint.lng}&radius=${radius}&keyword=${interest}&price=${maxPrice}&key=AIzaSyAG8pD29eYb7EnZNrNFinFbmMtJiqqnzKI`;
+  const mid = JSON.parse(midpoint)
+  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${mid.lat}%2C${mid.lng}&radius=${radius}&keyword=${interest}&price=${maxPrice}&key=AIzaSyBJxF1BhB_ITohgRDtOc2AUErTYRcYkEjU`;
   const request = {
     method: 'GET',
     url: url,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credential': true,
-    },
+
   };
   try {
     const response = await axios.request(request);
-    // console.log('this is the axios response:', response.data)
     res.locals = response.data;
     return next();
   } catch (err) {
