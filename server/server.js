@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const databaseRouter = require('./routes/database');
+const apiRouter = require('./routes/api')
 const cors = require('cors')
 
 // parse requests
@@ -12,8 +13,9 @@ app.use(express.urlencoded({extended: true}));
 //cors
 app.use(cors())
 
-// need routers
+// use routers
 app.use('/database', databaseRouter);
+app.use('/api', apiRouter);
 
 // serve static HTML
 
@@ -28,7 +30,6 @@ app.use((err, req, res, next) => {
   console.log(err.log);
   return res.status(err.status).json(err.message);
 });
-
 
 // start server
 app.listen(port, () => {

@@ -11,26 +11,27 @@ const Sidebar = (props) => {
     }
   }
 
-  const imgUrl = 'https://i.imgur.com/WTHBUgm.png';
+  const imgUrl = 'https://i40mc.de/wp-content/uploads/sites/22/2021/02/Icon-Roadmap.png';
 
   return (
-    <div id="sidebar" className='sidebarStyles'>
-      <div id="user-info" style={{ borderBottom: '4px solid black' }}>
-        <div className='flexAlignCenter'>
+    <div id="sidebar" className='sidebar'>
+      <div id="user-info" style={{ borderBottom: '3px solid black' }}>
+        <div className='profile'>
 
           {/* shows avatar photo and user greeting */}
           <img src={props.avatar} className='avatar' />
-          <p className='p1Styles'>Welcome back, {props.name}!</p>
+          <p className='p1'>Welcome back, {props.name}!</p>
 
         </div>
-        <div className='flexAlignCenter'>
+        <div className='user-location'>
 
           {/* shows location icon and user location */}
           <img src={imgUrl} className='marker' />
-          <p className='p2Styles'>{JSON.stringify(props.address)}</p>
-          <button onClick={() => console.log(props.address)}></button>
+          <p className='p2'>Current location: </p>
+          <p className='p2'>{props.address.lat}, {props.address.lng}</p>
+          {/* <button onClick={() => console.log(props.address)}></button> */}
         </div>
-        <div className='center'>
+        <div className='update-location'>
 
           {/* input field where users can elect to update their current location */}
           <input className='inputStyles'
@@ -44,35 +45,35 @@ const Sidebar = (props) => {
           </button>
         </div>
       </div>
-      <div id="meeting-user-list" className='center' >
-        <p>To Meet</p>
+      <div id="meeting-user-list" className='meeting-user-list' >
+        <p className='p2'>MEET UP WITH: </p>
         {/* dropdown populated with users from friends list */}
         {console.log('Props friends list', props.selectedUsersList)} {/* array of objects with user_id, username, and coordinates properties*/}
 
 
-        <div className='inputStyles' style={{ borderBottom: '4px solid black' }}>
+        <div className='meet-delete' style={{ borderBottom: '3px solid black' }}>
           {props.selectedUsersList.map((friend) => {
             return (<div id={friend.user_id} key={friend.user_id} value={friend.username}>
               <button onClick={() => props.deselectFriend(props.currentUserID, friend.user_id)}>{friend.username}</button></div>
             )
           }
           )}
-          <p></p>
+          
           <button onClick={() => props.getMidpoint(props.address, props.selectedUsersList)}>
-            Meet in the Middle
+            FIND MIDPOINT
           </button>
           <p></p>
         </div>
         {/* when clicked, triggers action to get that friend's location and use it to find the midpoint */}
       </div>
       {/* eventual functionality to add a friend to user's friend list by name search */}
-      <div id="all-user-list" className='inputStyles' className='center'>
-        <p>All Users</p>
+      <div id="all-user-list" className='all-user-list'>
+        <p className='p2'>ADD USERS: </p>
         {props.allUsersList.map((allUser, i) => {
           return (<div id={allUser.user_id} key={allUser.user_id} value={allUser.username}>
             <button onClick={() => props.addUser(props.currentUserID, allUser.user_id)}>
-              Add
-            </button> {allUser.username} </div>)
+            {allUser.username}
+            </button></div>)
         })}
 
 
