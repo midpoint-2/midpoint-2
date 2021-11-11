@@ -5,17 +5,35 @@ const Places = (props) => {
     console.log(props.places)
     return (
         <React.Fragment>
+            <div className="sidebar">
             <div className="places-wrapper">
                 <div className="places-info">
-                    <div className="place-name">Business Name {props.places.length > 0 && props.places[0].name}</div>
-                    <div className="place-desc">Desc</div>
-                    <div className="place-phone">Phone</div>
-                    <div className="place-address">Address</div>
-                    <div className="place-rating">Rating</div>
+                    <div className="place-name">Name: {props.places.length > 0 && props.places[0].name}</div>
+                    <div className="place-hours">Hours: {props.places.length > 0 && (props.places[0].opening_hours.open_now ? "OPEN NOW" : "CLOSED")}</div>
+                    <div className="place-address">Address: {props.places.length > 0 && props.places[0].vicinity}</div>
+                    <div className="place-rating">Rating: {props.places.length > 0 && props.places[0].rating}</div>
                 </div>
-                <div className="places-photo">photo link goes here</div>
             </div>
-            
+                <div style={{ borderTop: '3px solid black'}}></div>
+            <div className="places-wrapper">
+                <div className="places-info" ><p></p><p></p>
+                    <div className="place-name">Name: {props.places.length > 0 && props.places[1].name}</div>
+                    <div className="place-hours">Hours: {props.places.length > 0 && (props.places[1].opening_hours.open_now ? "OPEN NOW" : "CLOSED")}</div>
+                    <div className="place-address">Address: {props.places.length > 0 && props.places[1].vicinity}</div>
+                    <div className="place-rating">Rating: {props.places.length > 0 && props.places[1].rating}</div>
+                </div>
+            </div>
+                <div style={{ borderTop: '3px solid black'}}></div>
+            <div className="places-wrapper">
+                <div className="places-info" ><p></p><p></p>
+                    <div className="place-name">Name: {props.places.length > 0 && props.places[2].name}</div>
+                    <div className="place-hours">Hours: {props.places.length > 0 && (props.places[2].opening_hours.open_now ? "OPEN NOW" : "CLOSED")}</div>
+                    <div className="place-address">Address: {props.places.length > 0 && props.places[2].vicinity}</div>
+                    <div className="place-rating">Rating: {props.places.length > 0 && props.places[2].rating}</div>
+                </div>
+            </div>
+
+            </div>
         </React.Fragment>
             
     )

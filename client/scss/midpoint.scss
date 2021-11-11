@@ -89,22 +89,22 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  align-content: left;
-  background-color: #a7cdf2;
+  background-color: rgb(239, 239, 239);
   width: 20%;
   height: 100%;
   border: 1px solid black;
   border-radius: 6px;
-  margin-left: 0.5em;
+  margin-left: 1em;
   font-size: 0.9em;
 
   input {
+    align-items: center;
     font-size: 1em;
     height: 2rem;
-    width: 200px;
+    width: 90%;
     margin-bottom: 1em;
     border-radius: 10px;
-    padding-left: 15px;
+    padding-left: 0.5em;
     background-color: white;
     color: black;
   }
@@ -129,19 +129,40 @@
   }
 }
 
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.update-location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meeting-user-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.all-user-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .scrollContainer {
   overflow: scroll;
   height: 350px;
 }
 
 .avatar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
-  margin: 10px 10px;
+  margin: 10px 10px 10px 10px;
 }
 
 .inputStyles {
@@ -170,7 +191,18 @@
 
 .places-wrapper {
   display: flex;
-  margin-left: 1vw;
+  flex-direction: column;
+  margin-left: 0.5vw;
+}
+
+.places-info {
+  margin-bottom: 1vw;
+  margin-top: 1vw;
+}
+
+.place-name {
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .button-container {
@@ -198,8 +230,8 @@
     margin: 0.5em;
     height: 2em;
   }
-}
 
 .button-container .active {
   border: 2px solid rgb(156, 192, 250);
 }
+
