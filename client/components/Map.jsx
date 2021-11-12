@@ -21,7 +21,7 @@ const Map = (props) => {
 
       <div id="map-container" className='mapStyles'>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyAG8pD29eYb7EnZNrNFinFbmMtJiqqnzKI' }}
+          bootstrapURLKeys={{ key: 'YOUR API KEY HERE' }}
           defaultCenter={props.midpoint}
           center={props.midpoint}
           defaultZoom={12}>

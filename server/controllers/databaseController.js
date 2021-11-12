@@ -6,7 +6,7 @@ const dbController = {};
 
 const options = {
   provider: 'google',
-  apiKey: 'AIzaSyAG8pD29eYb7EnZNrNFinFbmMtJiqqnzKI',
+  apiKey: 'YOUR API KEY HERE',
 }
 
 const geocoder = NodeGeocoder(options);

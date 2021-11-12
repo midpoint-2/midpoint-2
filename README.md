@@ -8,3 +8,5 @@ New features:
 - add / remove friends from meet-up list
 - find midpoint for n amount of friends
 - find destinations around midpoint based off user preferences
+
+API KEY NEEDED TO RUN, PG URI NEEDED TO RUN
