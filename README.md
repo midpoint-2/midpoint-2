@@ -1,7 +1,12 @@
-# MidPoint
-An app to connect friends and encourage in-person meet-ups through geocoding.
+# MIDPOINT2
 
-Requires a Google Maps API Key to run.
-Requires Postgre SQL Database.
+An app for connecting with friends through geocoding. 
 
-Tags: React Redux Express Node.js PostgreSQL Geocoder Bcrypt Google Maps
+New features:
+
+- update location
+- add / remove friends from meet-up list
+- find midpoint for n amount of friends
+- find destinations around midpoint based off user preferences
+
+API KEY NEEDED TO RUN, PG URI NEEDED TO RUN

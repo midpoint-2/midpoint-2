@@ -7,10 +7,11 @@ const initialState = {
   pageToDisplay: 'login',
   currentUserID: '',
   loggedIn: false,
-  selfInfo: { avatar: 'https://www.mindenpictures.com/cache/pcache2/90392052.jpg', name: 'Wunderpus Photogenicus', address: { lat: 40, lng: -74 } },
-  friendsList: [],
-  notFriendsList: [],
+  selfInfo: { avatar: 'https://ca.slack-edge.com/T02B59DL83Y-U02FUQ7A79R-c812373563d4-512', name: 'han bin jo', address: { lat: 40, lng: -74 } },
+  selectedUsersList: [],
+  allUsersList: [],
   midpoint: { lat: 40.7142700, lng: -74.0059700 },
+  places: [],
 };
 
 const mainPageReducer = (state = initialState, action) => {
@@ -31,61 +32,74 @@ const mainPageReducer = (state = initialState, action) => {
       if (action.payload.verified) {
         const tempObj = { ...state.selfInfo };
         tempObj.name = action.payload.user.username;
-        tempObj.address = {lat: Number(action.payload.user.coordinates.lat), lng: Number(action.payload.user.coordinates.lng)}
+        tempObj.address = { lat: Number(action.payload.user.coordinates.lat), lng: Number(action.payload.user.coordinates.lng) }
 
         return {
           ...state,
           currentUserID: action.payload.user.user_id,
           selfInfo: tempObj,
-          friendsList: action.payload.friendList,
-          notFriendsList: action.payload.notFriendList,
+          selectedUsersList: action.payload.selectedUserList,
+          allUsersList: action.payload.allUsersList,
           loggedIn: true,
         };
       }
 
-      case types.SIGN_UP_USER:
+    case types.SIGN_UP_USER:
 
-        if(action.payload.verified === true) {
-          const tempObj = {...state.selfInfo};
-          tempObj.name = action.payload.user.username;
-          tempObj.address = `{lat: ${action.payload.user.coordinates.lat}, lng: ${action.payload.user.coordinates.lng}}`;
-         
-          return {
-            ...state,
-            currentUserID: action.payload.user.user_id,
-            selfInfo: tempObj,
-            loggedIn: true,
-            pageToDisplay: 'login',
-          };    
-        }
-         return {
-          ...state,
-          pageToDisplay: 'signup',
-         };
+      if (action.payload.verified === true) {
+        const tempObj = { ...state.selfInfo };
+        tempObj.name = action.payload.user.username;
+        tempObj.address = `{lat: ${action.payload.user.coordinates.lat}, lng: ${action.payload.user.coordinates.lng}}`;
 
-
-      case types.UPDATE_LOCATION:
-        const tempObj = Object.assign({}, state.selfInfo);
-        tempObj.address = action.payload.address;
         return {
           ...state,
+          currentUserID: action.payload.user.user_id,
           selfInfo: tempObj,
-        }
-        
-      case types.GET_MIDPOINT:
-        return {
-          ...state,
-          midpoint: action.payload
-        }
-
-
-    case types.ADD_FRIEND:
-      console.log("add friend triggered")
-
+          loggedIn: false,
+          pageToDisplay: 'login',
+        };
+      }
       return {
         ...state,
-        friendsList: action.payload.friendList,
-        notFriendsList: action.payload.notFriendList,
+        pageToDisplay: 'signup',
+      };
+
+
+    case types.UPDATE_LOCATION:
+      const tempObj = { ...state.selfInfo };
+      tempObj.address = { lat: Number(action.payload.coordinates.lat), lng: Number(action.payload.coordinates.lng) }
+      return {
+        ...state,
+        selfInfo: tempObj,
+      }
+
+    case types.GET_MIDPOINT:
+      return {
+        ...state,
+        midpoint: action.payload
+      }
+
+
+    case types.ADD_USER:
+      return {
+        ...state,
+        selectedUsersList: action.payload.selectedUserList,
+        allUsersList: action.payload.allUsersList,
+      }
+    //add deselect user reducer
+    case types.DESELECT_USER:
+      //return updated selected
+      return {
+        ...state,
+        selectedUsersList: action.payload.selectedUserList,
+        allUsersList: action.payload.allUsersList,
+      }
+      
+    case types.GET_PLACES:
+      console.log(action.payload)
+      return {
+        ...state,
+        places: action.payload
       }
 
     default:

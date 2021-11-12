@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+#app {
+  display: flex;
+  background: white;
+  height: 100%;
+  align-items: top;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+}
+
+.loginStyles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 5rem;
+    font-weight: normal;
+    color: gray;
+  }
+
+  img {
+    height: 200px;
+    margin-bottom: 5em;
+  }
+
+  button {
+    color: black;
+    font-size: 1em;
+    height: 2rem;
+    border-radius: 10px;
+    border-style: none;
+    box-shadow: 1px 2px 5px 1px lightgray;
+    margin-bottom: 1em;
+    min-width: 125px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #00549f;
+      color: white;
+    }
+  }
+
+  input{
+    margin-bottom: 1.5em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border: solid 1px rgb(197, 197, 197);
+    border-radius: 5px;
+    width:175px;
+  
+  }
+}
+
+.mainStyles {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  font-size: 1em;
+  margin-top: 1vw;
+}
+
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.mapStyles {
+  border: 1px solid gray;
+  width: 38vw;
+  height: 38vw;
+}
+.pin {
+  z-index: 1;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: -25px;
+  transform: translateY(-50%);
+}
+
+.marker {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: -25px;
+  transform: translateY(-50%);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(239, 239, 239);
+  width: 20%;
+  min-width: 20%;
+  height: 95%;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-left: 1em;
+  font-size: 0.9em;
+
+  input {
+    align-items: center;
+    font-size: 1em;
+    height: 2rem;
+    width: 90%;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    padding-left: 0.5em;
+    background-color: white;
+    color: black;
+  }
+
+  button {
+
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0.5px black;
+    margin-left: 0.5em;
+    margin-bottom: 1em;
+    min-width: 100px;
+
+    &:hover {
+      background-color: #00549f;
+      color: white;
+      border: 1px solid;
+      cursor: pointer;
+    }
+  }
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.update-location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meeting-user-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.all-user-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+.avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin: 10px 10px 10px 10px;
+}
+
+.inputStyles {
+  margin: 0px 6px;
+}
+
+.p1 {
+  margin-top: 24px;
+  font-size: 1em;
+  padding-left: 0.5em;
+}
+
+.p2 {
+  font-size: 1em;
+  padding-left: 0.5em;
+}
+
+.main-container {
+  margin-left: 1vw;
+}
+
+.main-flex {
+  display: flex;
+  margin-top: 1vw;
+}
+
+.places-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5vw;
+}
+
+.places-info {
+  margin-bottom: 1vw;
+  margin-top: 1vw;
+}
+
+.place-name {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.button-container {
+  button {
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0.5px black;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+    min-width: 100px;
+
+    &:hover {
+      background-color: #00549f;
+      color: white;
+      border: 1px solid;
+      cursor: pointer;
+    }
+  }
+
+  .radius {
+    border-radius: 10px;
+    margin: 0.5em;
+    height: 2em;
+  }
+}
+
+.button-container .active {
+  border: 2px solid rgb(156, 192, 250);
+}
+
+.place-name1{
+  color: #34abeb;
+}
+.place-name2{
+  color: #17b814;
+}
+.place-name3{
+  color: #ff7729;
+}
+
+.submit{
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #00549f;
+  color: white;
+}
+.submit:hover{
+  font-weight: 700;
+  background-color: #e6e6e6;
+  color: #00549f;
+}
+
+.update-button{
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #00549f;
+  color: white;
+}
+.find-mid-button{
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #00549f;
+  color: white;
+}
