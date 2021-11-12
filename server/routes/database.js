@@ -4,12 +4,7 @@ const router = express.Router();
 
 // get/verify current  user
 router.get('/login', dbController.verifyUser, dbController.getMeetingList, dbController.getUsersList, (req, res) => {
-  // status
-  // verified
-  // message
-  // user
-  // friends
-  return res.json(res.locals);
+  return res.status(200).json(res.locals);
 });
 
 // post/create a new user (encrypt password)
@@ -32,6 +27,5 @@ router.put('/updateLocation', dbController.updateLocation, (req, res) => {
 router.get('/coordinates', dbController.getCoords, (req, res) => {
   return res.status(200).json(res.locals.coords);
 });
-
 
 module.exports = router;

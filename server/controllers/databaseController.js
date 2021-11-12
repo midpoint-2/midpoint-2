@@ -79,6 +79,7 @@ Returns: [{ user_id: int,
     lat: num,
     lng: num }]
 */
+
 dbController.signUpUser = async (req, res, next) => {
   try {
     // declare a new user object with name, password, coords
@@ -91,7 +92,6 @@ dbController.signUpUser = async (req, res, next) => {
       const values = [username, encrypted, JSON.stringify(coordinates)];
       const response = await db.query(query, values);
       const user = response.rows[0];
-
       res.locals.verified = true;
       res.locals.message = 'User created!'
       res.locals.user = user;
@@ -192,6 +192,7 @@ dbController.getCoords = async (req, res, next) => {
 expect:
 req.body: { user1_id, user2_id }
 */
+
 dbController.addUser = async (req, res, next) => {
   try {
     const { user1_id, user2_id } = req.body;
@@ -205,12 +206,12 @@ dbController.addUser = async (req, res, next) => {
     res.locals.insert = insert.rows;
     return next();
   }
+
   catch (err) {
     return next(err);
   }
 }
 
-// TODOS //
 // DELETE USER from friend list
 dbController.deselectFriend = async (req, res, next) => {
   try {

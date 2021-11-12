@@ -10,7 +10,6 @@ const Sidebar = (props) => {
       setAddress(value);
     }
   }
-
   const imgUrl = 'https://i40mc.de/wp-content/uploads/sites/22/2021/02/Icon-Roadmap.png';
 
   return (
@@ -75,11 +74,8 @@ const Sidebar = (props) => {
             {allUser.username}
             </button></div>)
         })}
-
-
       </div>
     </div>
   )
 }
-
 export default Sidebar;

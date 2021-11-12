@@ -4,7 +4,6 @@ import Sidebar from './Sidebar'
 import Interests from './Interests'
 import Places from './Places'
 
-
 const Main = (props) => {
     return(
       <div id="main-content" className='mainStyles'>

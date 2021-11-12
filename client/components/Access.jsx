@@ -67,6 +67,7 @@ const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedI
         value={username}
         onChange={(event) => onChangeHandler(event)}
       />
+
       <input
         name="password"
         type="password"
@@ -80,12 +81,9 @@ const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedI
     </div>
   );
 
-
-
   // Sign Up Page
   return (
     <div className='loginStyles'>
-
       <h1>MidPoint</h1>
       <img src='https://i40mc.de/wp-content/uploads/sites/22/2021/02/Icon-Roadmap.png'/>
 
@@ -95,6 +93,7 @@ const Access = ({ pageToDisplay, currentUserID, addUser, deselectFriend, loggedI
 
       <button onClick={() => { if ((username || password || address) !== '') signUpUser(username, password, address) }}>Submit</button>
       <button onClick={signUpCancel}>Cancel</button>
+
     </div>
   );
 
