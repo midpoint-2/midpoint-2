@@ -1,6 +1,6 @@
-# MIDPOINT2
+# MIDPOINT 2.0
 
-An app for connecting with friends through geocoding. 
+An app to connect with friends through geocoding. 
 
 New features:
 
